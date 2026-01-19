@@ -1,0 +1,101 @@
+/* CSS VARIABLES */
+:root {
+  --bg-gradient: linear-gradient(135deg, #020617, #020617);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --text-color: #ffffff;
+}
+
+body[data-theme="light"] {
+  --bg-gradient: linear-gradient(135deg, #e5e7eb, #f8fafc);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --text-color: #020617;
+}
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+}
+
+/* DASHBOARD GRID */
+.dashboard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 90px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  height: 100vh;
+  padding: 24px;
+  gap: 24px;
+}
+
+/* HEADER */
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.header button {
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+/* SIDEBAR */
+.sidebar {
+  grid-area: sidebar;
+  padding: 32px;
+  font-size: 28px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* MAIN CONTENT */
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.card {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 500;
+}
